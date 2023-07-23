@@ -1,0 +1,13 @@
+local TweenService = game:GetService("TweenService")
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Replace the following CFrame with the destination you want to teleport to
+local destinationCFrame = CFrame.new(Vector3.new(10, 5, 20))
+
+-- Speed option to adjust teleportation speed
+local speed = 1 -- Adjust this value to change the speed, higher is faster
+
+local teleportTween = TweenService:Create(humanoidRootPart, TweenInfo.new(speed), {CFrame = destinationCFrame})
+teleportTween:Play()
